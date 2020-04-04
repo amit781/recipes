@@ -34,33 +34,33 @@ class App extends Component {
   }
 
   // keep session
-  // componentDidMount() {
-  //   fetch("https://whispering-shelf-53733.herokuapp.com/auth/login/success", {
-  //     method: "GET",
-  //     credentials: "include",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Content-Type": "application/json",
-  //       "Access-Control-Allow-Credentials": true
-  //     }
-  //   })
-  //   .then(response => {
-  //     if (response.status === 200) return response.json();
-  //       throw new Error("failed to authenticate user");
-  //     })
-  //   .then(response => {
-  //     this.setState({
-  //       isSignedIn: true,
-  //       user: response.user
-  //       });
-  //   })
-  //   .catch(error => {
-  //     this.setState({
-  //       isSignedIn: false,
-  //       error: "Failed to authenticate user"
-  //     });
-  //   });
-  // }    
+  componentDidMount() {
+    fetch("https://whispering-shelf-53733.herokuapp.com/auth/login/success", {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Credentials": true
+      }
+    })
+    .then(response => {
+      if (response.status === 200) return response.json();
+        throw new Error("failed to authenticate user");
+      })
+    .then(response => {
+      this.setState({
+        isSignedIn: true,
+        user: response.user
+        });
+    })
+    .catch(error => {
+      this.setState({
+        isSignedIn: false,
+        error: "Failed to authenticate user"
+      });
+    });
+  }    
 
   render() {
     const { route, isSignedIn, recipeId, error } = this.state;
