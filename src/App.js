@@ -63,7 +63,7 @@ class App extends Component {
 
   // keep session
   componentDidMount() {
-    loadUser();
+    this.loadUser();
   }    
 
   render() {
