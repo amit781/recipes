@@ -11,7 +11,8 @@ const initialState = {
   route: 'home', 
   isSignedIn: false,
   value: '', 
-  recipeId: 0, 
+  recipeId: 0,
+  user: {} 
 }
 
 class App extends Component {
@@ -33,15 +34,13 @@ class App extends Component {
     this.setState({recipeId: id});
   }
 
-  // keep session
-  componentDidMount() {
+  loadUser = () => {
     fetch("https://whispering-shelf-53733.herokuapp.com/auth/login/success", {
       method: "GET",
       credentials: "include",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        // "Access-Control-Allow-Credentials": true
       }
     })
     .then(response => {
@@ -60,6 +59,11 @@ class App extends Component {
         error: "Failed to authenticate user"
       });
     });
+  }
+
+  // keep session
+  componentDidMount() {
+    loadUser();
   }    
 
   render() {
@@ -71,7 +75,7 @@ class App extends Component {
         ? <Welcome/>
         : ( 
           route === 'signin'
-            ? <SignIn onRouteChange={this.onRouteChange} isSignedIn={isSignedIn}/>
+            ? <SignIn onRouteChange={this.onRouteChange} isSignedIn={isSignedIn} loadUser={this.loadUser}/>
             : (
               route === 'register'
               ? <Register onRouteChange={this.onRouteChange}/>

@@ -3,7 +3,7 @@ import './RecipesList.css';
 import RecipeCard from '../RecipeCard/RecipeCard'
 
 	 
-const RecipesList = ({ recipesList, baseUrl, fetchInformation, onRouteChange, SetRecipeId }) => {
+const RecipesList = ({ recipesList, baseUrl, onRouteChange, SetRecipeId }) => {
 	return (
 	<div className='container' style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gridGap:'20px'}}>
 		{

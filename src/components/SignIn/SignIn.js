@@ -23,7 +23,6 @@ class SignIn extends Component{
     fetch('https://whispering-shelf-53733.herokuapp.com/auth/signin', {
       method: 'post',
       credentials: 'include',
-      // mode: 'no-cors',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
         email: this.state.signInEmail ,
@@ -33,7 +32,8 @@ class SignIn extends Component{
     .then(response => response.json())
     .then(user => {
       if (user.id) {
-        this.props.onRouteChange('search')
+        this.props.onRouteChange('search');
+        this.props.loadUser();
       } else {
         this.setState({errorMessage: user})
       }

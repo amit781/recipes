@@ -56,7 +56,7 @@ class SearchRecipe extends Component{
 
     render() {
         // const { onRouteChange, isSignedIn } = this.props;
-        const { baseUrl, recipesList, fetchInformation } = this.state;
+        const { baseUrl, recipesList } = this.state;
         return (
             <div>
                 <div className="wrap">
