@@ -17,7 +17,7 @@ class RecipePage extends Component{
     getInformation = (id) => {
         return fetch('https://whispering-shelf-53733.herokuapp.com/getInformation', {
           method: 'post',
-          mode: 'no-cors',
+          // mode: 'no-cors',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             id: id

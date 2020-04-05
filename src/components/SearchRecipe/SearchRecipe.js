@@ -22,7 +22,7 @@ class SearchRecipe extends Component{
     getRecipes = (query) => {
         return fetch('https://whispering-shelf-53733.herokuapp.com/api/searchRecipes', {
           method: 'post',
-          mode: 'no-cors',
+          // mode: 'no-cors',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             query: query
