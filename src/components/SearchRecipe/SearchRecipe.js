@@ -22,7 +22,6 @@ class SearchRecipe extends Component{
     getRecipes = (query) => {
         return fetch('https://whispering-shelf-53733.herokuapp.com/api/searchRecipes', {
           method: 'post',
-          // mode: 'no-cors',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
             query: query
@@ -77,7 +76,6 @@ class SearchRecipe extends Component{
                 <RecipesList 
                  baseUrl={baseUrl} 
                  recipesList={recipesList} 
-                 fetchInformation={fetchInformation}
                  onRouteChange={this.props.onRouteChange}
                  SetRecipeId={this.props.SetRecipeId}/>
             </div>
