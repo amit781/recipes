@@ -28,7 +28,7 @@ class RecipePage extends Component{
     render() {
         const { extendedIngredients, instructions, title, readyInMinutes, image} = this.state.information;
         return (
-            <div className='center'>
+            <div className='flex-center'>
                 <article style={{width: '70%'}} className='pa2'>
                     <h1 className='title'>{title}</h1>
                     <div style={{overflow: 'hidden'}}>
