@@ -42,7 +42,12 @@ class SearchRecipe extends Component{
         this.getRecipes(this.state.input)
         .then(response => {
             if (response) {
-                this.setState({recipesList: response.results, baseUrl: response.baseUri, errorMessage: ''});
+                // if no results
+                if(response.results.length === 0){
+                    this.setState({errorMessage: 'No results found', recipesList: []})
+                } else {
+                    this.setState({recipesList: response.results, baseUrl: response.baseUri, errorMessage: ''});
+                }
             } else {
                 this.setState({errorMessage: 'No results found', recipesList: []})
             }
