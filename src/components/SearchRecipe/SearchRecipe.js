@@ -81,7 +81,7 @@ class SearchRecipe extends Component{
                  baseUrl={baseUrl} 
                  recipesList={recipesList} 
                  onRouteChange={this.props.onRouteChange}
-                 SetRecipeId={this.props.SetRecipeId}/>
+                 setRecipeId={this.props.setRecipeId}/>
             </div>
         )
     }

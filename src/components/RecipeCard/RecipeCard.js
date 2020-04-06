@@ -1,6 +1,7 @@
 import React from 'react';
+import defaultImage from "./default.jpg";
 
-const RecipeCard = ({ title, imageUrl, onRouteChange, SetRecipeId, recipeId }) => {
+const RecipeCard = ({ title, imageUrl, onRouteChange, setRecipeId, recipeId }) => {
 	const onClick = () => {
 		onRouteChange('recipe-page');
 		setRecipeId(recipeId);
