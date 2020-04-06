@@ -39,7 +39,12 @@ class RecipePage extends Component{
 
     render() {
         const { extendedIngredients, ingredients, instructions, title, readyInMinutes, image} = this.state.information;
-        const imageUrl = 'https://whispering-shelf-53733.herokuapp.com/uploads/images/' + image;
+        let imageUrl;
+        if (image === 'no file uploaded') {
+            imageUrl = 'http://localhost:4000/uploads/images/default.jpg';
+        } else {
+            imageUrl = 'http://localhost:4000/uploads/images/' + image;
+        } 
         return (
             <div className='flex-center'>
                 <article style={{width: '70%'}} className='pa2'>
