@@ -15,6 +15,7 @@ const Navigation = ({ onRouteChange, isSignedIn, setIsSignedIn }) => {
 	if (isSignedIn) {
 		return (
 			<nav style={{display: 'flex', justifyContent: 'flex-end'}}>				
+					<p onClick={() => onRouteChange('user-page')} className='f3 link dim black pa3 pointer shadow-5'> My recipes </p>
 					<p onClick={() => onRouteChange('search')} className='f3 link dim black pa3 pointer shadow-5'> Search </p>
 					<p onClick={onSignOut} className='f3 link dim black pa3 pointer shadow-5'> Sign Out </p>
 			</nav> );
