@@ -6,13 +6,16 @@ import Register from './components/Register/Register';
 import SignIn from './components/SignIn/SignIn';
 import SearchRecipe from './components/SearchRecipe/SearchRecipe';
 import RecipePage from './components/RecipePage/RecipePage';
+import UserPage from './components/UserPage/UserPage';
+import AddRecipe from './components/AddRecipe/AddRecipe';
 
 const initialState = {
   route: 'home', 
   isSignedIn: false,
   value: '', 
   recipeId: 0,
-  user: {} 
+  user: {},
+  recipesFrom: ''
 }
 
 class App extends Component {
@@ -34,6 +37,10 @@ class App extends Component {
     this.setState({recipeId: id});
   }
 
+  setRecipesFrom = (recipesFrom) => {
+    this.setState({recipesFrom: recipesFrom});
+  }  
+  
   loadUser = () => {
     fetch("https://whispering-shelf-53733.herokuapp.com/auth/login/success", {
       method: "GET",
@@ -67,7 +74,7 @@ class App extends Component {
   }    
 
   render() {
-    const { route, isSignedIn, recipeId, error } = this.state;
+    const { route, isSignedIn, recipeId, error, user, recipesFrom } = this.state;
     return (
       <div className="App">
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
@@ -81,8 +88,16 @@ class App extends Component {
               ? <Register onRouteChange={this.onRouteChange}/>
               : (
                 route === 'search'
-                ? <SearchRecipe onRouteChange={this.onRouteChange} SetRecipeId={this.setRecipeId}/>
-                : <RecipePage recipeId={recipeId}/>
+                ? <SearchRecipe user={user} onRouteChange={this.onRouteChange} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/>
+                : (
+                  route === 'recipe-page'
+                  ? <RecipePage recipeId={recipeId} recipesFrom={recipesFrom}/>
+                  : (
+                    route === 'user-page'
+                    ? <UserPage user={user} onRouteChange={this.onRouteChange} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/>
+                    : <AddRecipe user={user} onRouteChange={this.onRouteChange}/>
+                    )
+                  )
                 ) 
               )
           )
