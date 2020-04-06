@@ -15,7 +15,7 @@ class UserPage extends Component {
     }
 
     componentDidMount() {
-    	fetch(`https://whispering-shelf-53733.herokuapp.com/${this.props.user.email}`, {
+    	fetch(`https://whispering-shelf-53733.herokuapp.com/recipes/${this.props.user.email}`, {
       		method: "GET",
       		credentials: "include",
       		headers: {
