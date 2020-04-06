@@ -5,7 +5,7 @@ import RecipeCard from '../RecipeCard/RecipeCard'
 	 
 const RecipesList = ({ recipesList, baseUrl, onRouteChange, SetRecipeId }) => {
 	return (
-	<div className='container' style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gridGap:'20px'}}>
+	<div className='container' style={{display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gridGap:'20px', margin: '20px'}}>
 		{
 			recipesList.map((recipe, i) => {
 				return (
@@ -16,7 +16,7 @@ const RecipesList = ({ recipesList, baseUrl, onRouteChange, SetRecipeId }) => {
 					recipeId={recipe.id}
 					onRouteChange={onRouteChange}
 					SetRecipeId={SetRecipeId}/>
-					)
+				)
 			})
 		}
 	</div>

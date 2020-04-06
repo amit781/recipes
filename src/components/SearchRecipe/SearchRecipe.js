@@ -53,6 +53,10 @@ class SearchRecipe extends Component{
         })
     }
 
+    componentDidMount() {
+        this.props.setRecipesFrom('api');
+    }
+
     render() {
         // const { onRouteChange, isSignedIn } = this.props;
         const { baseUrl, recipesList } = this.state;
