@@ -2,8 +2,12 @@ import React from 'react';
 
 const RecipeCard = ({ title, imageUrl, onRouteChange, SetRecipeId, recipeId }) => {
 	const onClick = () => {
-		onRouteChange('recipe');
-		SetRecipeId(recipeId);
+		onRouteChange('recipe-page');
+		setRecipeId(recipeId);
+	}
+
+	if (!imageUrl) {
+		imageUrl = defaultImage;
 	}
 
 	return (
@@ -13,7 +17,7 @@ const RecipeCard = ({ title, imageUrl, onRouteChange, SetRecipeId, recipeId }) =
                 <h3 className="pointer" onClick={onClick}>{title}</h3>
             </div>
 	    </article>
-		)
+	)
 }
 
 export default RecipeCard;
