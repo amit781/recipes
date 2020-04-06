@@ -39,7 +39,7 @@ class RecipePage extends Component{
 
     render() {
         const { extendedIngredients, ingredients, instructions, title, readyInMinutes, image} = this.state.information;
-        const imageUrl = 'http://localhost:4000/uploads/images/' + image;
+        const imageUrl = 'https://whispering-shelf-53733.herokuapp.com/uploads/images/' + image;
         return (
             <div className='flex-center'>
                 <article style={{width: '70%'}} className='pa2'>
