@@ -9,7 +9,7 @@ class RecipePage extends Component{
         }
     }
 
-        componentDidMount() {
+    componentDidMount() {
         if (this.props.recipesFrom === 'api') {
             this.getInformationFromApi(this.props.recipeId)
             .then(information => this.setState({information: information}));
@@ -39,12 +39,7 @@ class RecipePage extends Component{
 
     render() {
         const { extendedIngredients, ingredients, instructions, title, readyInMinutes, image} = this.state.information;
-        let imageUrl;
-        if (image === 'no file uploaded') {
-            imageUrl = 'https://whispering-shelf-53733.herokuapp.com/uploads/images/default.jpg';
-        } else {
-            imageUrl = 'https://whispering-shelf-53733.herokuapp.com/uploads/images/' + image;
-        } 
+        const imageUrl = 'https://perfectrecipesbucket.s3-us-west-1.amazonaws.com/' + image; 
         return (
             <div className='flex-center'>
                 <article style={{width: '70%'}} className='pa2'>
