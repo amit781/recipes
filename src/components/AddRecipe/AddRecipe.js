@@ -51,7 +51,14 @@ class AddRecipe extends Component {
       const data = new FormData();
       const {title, instructions, ingredients, recipeImage} = this.state;
       data.append('recipeImage', recipeImage);
-      this.uploadImage(data).then(console.log);
+      this.uploadImage(data)
+      .then(file => {
+        if (file.fileName) {
+          console.log('yes');
+        } else {
+          console.log('no');
+        }
+      });
     }
 
     onSubmit2 = () => {
