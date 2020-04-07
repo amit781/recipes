@@ -37,30 +37,30 @@ class AddRecipe extends Component {
             body: data
           })
           .then(response => response.json())
-          .then(data => {
-                console.log(data)
-                // this.setState({imageUrl: 'http://localhost:4000/' + data})
-          })
+          // .then(data => {
+          //       console.log(data)
+          //       // this.setState({imageUrl: 'http://localhost:4000/' + data})
+          // })
           .catch(error => {
             console.error(error)
           })
     } 
 
-    onSubmit2 = () => {
+    onSubmit = () => {
       const data = new FormData();
-      const {title, instructions, ingredients} = this.state;
-      data.append('recipeImage', this.state.recipeImage);
-      this.uploadImage(data);
+      const {title, instructions, ingredients, recipeImage} = this.state;
+      data.append('recipeImage', recipeImage);
+      this.uploadImage(data).then(console.log);
     }
 
-    onSubmit = () => {
+    onSubmit2 = () => {
         const data = new FormData();
         const {title, instructions, ingredients} = this.state;
         data.append('recipeImage', this.state.recipeImage);
         // !title || !instructions || !ingredients
         if (false) {
           return this.setState({errorMessage: 'Title, Instructions and ingredients must be filled in'})
-        } else {
+        } else if (!) {
           fetch('https://whispering-shelf-53733.herokuapp.com/recipes/image-upload', {
               method: 'POST',
               body: data
