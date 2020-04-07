@@ -34,6 +34,7 @@ class AddRecipe extends Component {
     uploadImage = (data) => {
         return fetch('https://whispering-shelf-53733.herokuapp.com/recipes/image-upload', {
             method: 'POST',
+            credentials: 'include',
             body: data
           })
           .then(response => response.json())
