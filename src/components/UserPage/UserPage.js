@@ -39,7 +39,7 @@ class UserPage extends Component {
 				  <div><RecipesList 
             className="mb3" 
             recipesList={this.state.recipesList} 
-            baseUrl={process.env.awsBucketUrl} 
+            baseUrl={process.env.REACT_APP_AWS_BUCKET_URL} 
             onRouteChange={onRouteChange} 
             setRecipeId={setRecipeId}
             style={{position: "relative", top: "-100px"}}/>
