@@ -38,10 +38,6 @@ class AddRecipe extends Component {
             body: data
           })
           .then(response => response.json())
-          // .then(data => {
-          //       console.log(data)
-          //       // this.setState({imageUrl: 'http://localhost:4000/' + data})
-          // })
           .catch(error => {
             console.error(error)
           })
@@ -83,48 +79,6 @@ class AddRecipe extends Component {
           this.addRecipeToDataBase('default.jpg');
         }
       });
-    }
-
-    onSubmit2 = () => {
-        const data = new FormData();
-        const {title, instructions, ingredients} = this.state;
-        data.append('recipeImage', this.state.recipeImage);
-        // !title || !instructions || !ingredients
-        if (false) {
-          return this.setState({errorMessage: 'Title, Instructions and ingredients must be filled in'})
-        } else if (true) {
-          fetch('https://whispering-shelf-53733.herokuapp.com/recipes/image-upload', {
-              method: 'POST',
-              body: data
-            })
-            .then(response => response.json())
-            .then(data => {
-                    fetch('https://whispering-shelf-53733.herokuapp.com/recipes/addRecipe', {
-                        method: 'post',
-                        credentials: 'include',
-                        headers: {'Content-Type': 'application/json'},
-                        body: JSON.stringify({
-                                        title: title,
-                                        ingredients: ingredients,
-                                        instructions: instructions,
-                                        email: this.props.user.email,
-                                        image: data.fileName
-                                      })
-                        })
-                        .then(response => response.json())
-                        .then(recipe => {
-                          if (recipe === 'incorrect form submission') {
-                            this.setState({errorMessage: 'Title, Instructions and ingredients must be filled in'})
-                          } else {
-                            this.props.onRouteChange('user-page');
-                          }
-                        })
-                  .catch(err => console.log(err));
-            })
-            .catch(error => {
-              console.error(error)
-          })     
-        }   
     }
 
     render() {

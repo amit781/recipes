@@ -7,9 +7,6 @@ const RecipeCard = ({ title, imageUrl, onRouteChange, setRecipeId, recipeId }) =
 		setRecipeId(recipeId);
 	}
 
-	// if (!imageUrl) {
-	// 	imageUrl = defaultImage;
-	// }
 	console.log(imageUrl);
 	return (
 		<article className="pa2" width='200px'>
