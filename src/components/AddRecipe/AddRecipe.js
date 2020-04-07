@@ -46,14 +46,14 @@ class AddRecipe extends Component {
           })
     } 
 
-    onSubmit = () => {
+    onSubmit2 = () => {
       const data = new FormData();
       const {title, instructions, ingredients} = this.state;
       data.append('recipeImage', this.state.recipeImage);
       this.uploadImage(data);
     }
 
-    onSubmit2 = () => {
+    onSubmit = () => {
         const data = new FormData();
         const {title, instructions, ingredients} = this.state;
         data.append('recipeImage', this.state.recipeImage);
@@ -76,7 +76,7 @@ class AddRecipe extends Component {
                                         ingredients: ingredients,
                                         instructions: instructions,
                                         email: this.props.user.email,
-                                        image: data
+                                        image: data.fileName
                                       })
                         })
                         .then(response => response.json())
