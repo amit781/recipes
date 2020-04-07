@@ -46,88 +46,47 @@ class AddRecipe extends Component {
           })
     } 
 
-    // onSubmit2 = () => {
-    //     const data = new FormData();
-    //     const {title, instructions, ingredients} = this.state;
-    //     data.append('recipeImage', this.state.recipeImage);
-    //     // !title || !instructions || !ingredients
-    //     if (false) {
-    //       return this.setState({errorMessage: 'Title, Instructions and ingredients must be filled in'})
-    //     } else {
-    //       fetch('https://whispering-shelf-53733.herokuapp.com/recipes/uploadImage', {
-    //           method: 'POST',
-    //           body: data
-    //         })
-    //         .then(response => response.json())
-    //         .then(data => {
-    //                 fetch('https://whispering-shelf-53733.herokuapp.com/recipes/addRecipe', {
-    //                     method: 'post',
-    //                     credentials: 'include',
-    //                     headers: {'Content-Type': 'application/json'},
-    //                     body: JSON.stringify({
-    //                                     title: title,
-    //                                     ingredients: ingredients,
-    //                                     instructions: instructions,
-    //                                     email: this.props.user.email,
-    //                                     image: data
-    //                                   })
-    //                     })
-    //                     .then(response => response.json())
-    //                     .then(recipe => {
-    //                       if (recipe === 'incorrect form submission') {
-    //                         this.setState({errorMessage: 'Title, Instructions and ingredients must be filled in'})
-    //                       } else {
-    //                         this.props.onRouteChange('user-page');
-    //                       }
-    //                     })
-    //               .catch(err => console.log(err));
-    //         })
-    //         .catch(error => {
-    //           console.error(error)
-    //       })     
-    //     }   
-    // }
-
     onSubmit = () => {
         const data = new FormData();
         const {title, instructions, ingredients} = this.state;
         data.append('recipeImage', this.state.recipeImage);
-        this.uploadImage(data);
+        // !title || !instructions || !ingredients
+        if (false) {
+          return this.setState({errorMessage: 'Title, Instructions and ingredients must be filled in'})
+        } else {
+          fetch('https://whispering-shelf-53733.herokuapp.com/recipes/uploadImage', {
+              method: 'POST',
+              body: data
+            })
+            .then(response => response.json())
+            .then(data => {
+                    fetch('https://whispering-shelf-53733.herokuapp.com/recipes/addRecipe', {
+                        method: 'post',
+                        credentials: 'include',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                                        title: title,
+                                        ingredients: ingredients,
+                                        instructions: instructions,
+                                        email: this.props.user.email,
+                                        image: data
+                                      })
+                        })
+                        .then(response => response.json())
+                        .then(recipe => {
+                          if (recipe === 'incorrect form submission') {
+                            this.setState({errorMessage: 'Title, Instructions and ingredients must be filled in'})
+                          } else {
+                            this.props.onRouteChange('user-page');
+                          }
+                        })
+                  .catch(err => console.log(err));
+            })
+            .catch(error => {
+              console.error(error)
+          })     
+        }   
     }
-
-    // getSignedRequest = (file) => {
-    //   const xhr = new XMLHttpRequest();
-    //   xhr.open('GET', `/sign-s3?file-name=${file.name}&file-type=${file.type}`);
-    //   xhr.onreadystatechange = () => {
-    //     if(xhr.readyState === 4){
-    //       if(xhr.status === 200){
-    //         const response = JSON.parse(xhr.responseText);
-    //         uploadFile(file, response.signedRequest, response.url);
-    //       }
-    //       else{
-    //         alert('Could not get signed URL.');
-    //       }
-    //     }
-    //   };
-    //   xhr.send();
-    // }
-
-    // uploadFile = (file, signedRequest, url) => {
-    //   const xhr = new XMLHttpRequest();
-    //   xhr.open('PUT', signedRequest);
-    //   xhr.onreadystatechange = () => {
-    //     if(xhr.readyState === 4){
-    //       if(xhr.status === 200){
-    //         document.getElementById('preview').src = url;
-    //         document.getElementById('avatar-url').value = url;
-    //       }
-    //       else{
-    //         alert('Could not upload file.');
-    //       }
-    //     }
-    //   };
-    //   xhr.send(file);
-    // }
 
     render() {
         return (
