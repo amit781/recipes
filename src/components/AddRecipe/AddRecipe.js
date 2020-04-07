@@ -92,7 +92,7 @@ class AddRecipe extends Component {
         const data = new FormData();
         const {title, instructions, ingredients} = this.state;
         data.append('recipeImage', this.state.recipeImage);
-        uploadImage(data);
+        this.uploadImage(data);
     }
 
     // getSignedRequest = (file) => {
