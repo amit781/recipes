@@ -46,6 +46,30 @@ class AddRecipe extends Component {
             console.error(error)
           })
     } 
+    
+    addRecipeToDataBase = (fileName) => {
+      fetch('https://whispering-shelf-53733.herokuapp.com/recipes/addRecipe', {
+              method: 'post',
+              credentials: 'include',
+              headers: {'Content-Type': 'application/json'},
+              body: JSON.stringify({
+                title: title,
+                ingredients: ingredients,
+                instructions: instructions,
+                email: this.props.user.email,
+                image: fileName
+              })
+            })
+            .then(response => response.json())
+            .then(recipe => {
+                    if (recipe === 'incorrect form submission') {
+                      this.setState({errorMessage: 'Title, Instructions and ingredients must be filled in'})
+                    } else {
+                      this.props.onRouteChange('user-page');
+                    }
+                  })
+            .catch(err => console.log(err));
+    }
 
     onSubmit = () => {
       const data = new FormData();
@@ -54,9 +78,9 @@ class AddRecipe extends Component {
       this.uploadImage(data)
       .then(file => {
         if (file.fileName) {
-          console.log('yes');
+          this.addRecipeToDataBase(file.fileName);
         } else {
-          console.log('no');
+          this.addRecipeToDataBase('default.jpg');
         }
       });
     }
