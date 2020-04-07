@@ -60,7 +60,7 @@ class AddRecipe extends Component {
         // !title || !instructions || !ingredients
         if (false) {
           return this.setState({errorMessage: 'Title, Instructions and ingredients must be filled in'})
-        } else if (!) {
+        } else if (true) {
           fetch('https://whispering-shelf-53733.herokuapp.com/recipes/image-upload', {
               method: 'POST',
               body: data
