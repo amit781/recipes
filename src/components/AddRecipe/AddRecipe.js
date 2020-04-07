@@ -32,7 +32,7 @@ class AddRecipe extends Component {
     }
 
     uploadImage = (data) => {
-        fetch('http://localhost:4000/recipes/upload', {
+        fetch('https://whispering-shelf-53733.herokuapp.com/recipes/upload', {
             method: 'POST',
             body: data
           })
@@ -47,6 +47,13 @@ class AddRecipe extends Component {
     } 
 
     onSubmit = () => {
+      const data = new FormData();
+      const {title, instructions, ingredients} = this.state;
+      data.append('recipeImage', this.state.recipeImage);
+      this.uploadImage(data);
+    }
+
+    onSubmit2 = () => {
         const data = new FormData();
         const {title, instructions, ingredients} = this.state;
         data.append('recipeImage', this.state.recipeImage);
