@@ -32,7 +32,7 @@ class AddRecipe extends Component {
     }
 
     uploadImage = (data) => {
-        fetch('https://whispering-shelf-53733.herokuapp.com/recipes/image-upload', {
+        fetch(`https://whispering-shelf-53733.herokuapp.com/recipes/image-upload/${data.name}`, {
             method: 'POST',
             body: data
           })
