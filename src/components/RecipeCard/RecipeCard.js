@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import defaultImage from "./default.jpg";
-
+import { Redirect } from "react-router-dom";
 
 class RecipeCard extends Component {
 	constructor() {
