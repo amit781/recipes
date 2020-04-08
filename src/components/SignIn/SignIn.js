@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Redirect } from "react-router-dom";
 
 class SignIn extends Component{
 
@@ -7,7 +8,9 @@ class SignIn extends Component{
     this.state = {
       signInEmail: '',
       signInPassword: '',
-      errorMessage: ''
+      errorMessage: '',
+      toSearchPage: false, 
+      toRegister: false
     }
   }
 
@@ -32,8 +35,10 @@ class SignIn extends Component{
     .then(response => response.json())
     .then(user => {
       if (user.id) {
-        this.props.onRouteChange('search');
-        this.props.loadUser();
+        this.props.loadUser()
+        .then(this.setState({toSearchPage: true}));
+        // this.props.onRouteChange('search');
+        // this.props.loadUser();
       } else {
         this.setState({errorMessage: user})
       }
@@ -41,7 +46,13 @@ class SignIn extends Component{
   }  
 
   render() {
-    const { onRouteChange } = this.props;
+    // const { onRouteChange } = this.props;
+    if (this.state.toSearchPage) {
+      return <Redirect to='/search' />
+    } 
+    if (this.state.toRegister) {
+      return <Redirect to='/register' />
+    }
 	  return (
       <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
         <main className="pa4 black-80">
