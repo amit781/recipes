@@ -8,6 +8,7 @@ import SearchRecipe from './components/SearchRecipe/SearchRecipe';
 import RecipePage from './components/RecipePage/RecipePage';
 import UserPage from './components/UserPage/UserPage';
 import AddRecipe from './components/AddRecipe/AddRecipe';
+import NavBar from './components/NavBar/NavBar';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const initialState = {
@@ -92,7 +93,6 @@ class App extends Component {
         <main> 
           <NavBar isSignedIn={isSignedIn} signout={this.onSignOut}/>
           <Route path="/" exact component={Welcome} />
-          <Route path="/signout" exact component={SignOut} />
           <Route path="/signin"  render={(props) => <SignIn isSignedIn={isSignedIn} loadUser={this.loadUser}/>} />
           <Route path="/register" component={Register}/>
           <Route path="/search"  render={(props) => <SearchRecipe user={user} loadUser={this.loadUser} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/>} />
