@@ -17,7 +17,8 @@ const initialState = {
   value: '', 
   recipeId: 0,
   user: {},
-  recipesFrom: ''
+  recipesFrom: '', 
+  toWelcomePage: false
 }
 
 class App extends Component {
@@ -42,7 +43,11 @@ class App extends Component {
   setRecipesFrom = (recipesFrom) => {
     this.setState({recipesFrom: recipesFrom});
   }  
-  
+
+  updateUser = (user) => {
+    this.setState({user: user, isSignedIn: true});
+  }
+
   loadUser = () => {
     fetch("https://whispering-shelf-53733.herokuapp.com/auth/login/success", {
       method: "GET",
@@ -93,7 +98,7 @@ class App extends Component {
         <main> 
           <NavBar isSignedIn={isSignedIn} signout={this.onSignOut}/>
           <Route path="/" exact component={Welcome} />
-          <Route path="/signin"  render={(props) => <SignIn isSignedIn={isSignedIn} loadUser={this.loadUser}/>} />
+          <Route path="/signin"  render={(props) => <SignIn isSignedIn={isSignedIn} updateUser={this.updateUser}/>} />
           <Route path="/register" component={Register}/>
           <Route path="/search"  render={(props) => <SearchRecipe user={user} loadUser={this.loadUser} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/>} />
           <Route path="/recipePage"  render={(props) => <RecipePage recipeId={recipeId} recipesFrom={recipesFrom}/>} />

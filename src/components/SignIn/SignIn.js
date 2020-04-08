@@ -35,8 +35,8 @@ class SignIn extends Component{
     .then(response => response.json())
     .then(user => {
       if (user.id) {
-        this.props.loadUser()
-        .then(this.setState({toSearchPage: true}));
+        this.props.updateUser(user)
+        this.setState({toSearchPage: true});
         // this.props.onRouteChange('search');
         // this.props.loadUser();
       } else {
