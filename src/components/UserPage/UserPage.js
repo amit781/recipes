@@ -32,6 +32,9 @@ class UserPage extends Component {
 
     render() {
     	const { user, onRouteChange, setRecipeId } = this.props;
+      if (this.state.toAddRcipe) {
+        return <Redirect to='/addRecipe'/>
+      } 
     	return (
 			<div>
           <div className="wrap-user-page">
