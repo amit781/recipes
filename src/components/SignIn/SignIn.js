@@ -91,7 +91,7 @@ class SignIn extends Component{
               />
             </div>
             <div className="lh-copy mt3">
-              <p onClick={() => onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
+              <p className="f6 link dim black db pointer" onClick={() => this.setState({toRegister: true})}>Register</p>
             </div>
           </div>
         </main>
