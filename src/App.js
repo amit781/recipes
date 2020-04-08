@@ -8,6 +8,7 @@ import SearchRecipe from './components/SearchRecipe/SearchRecipe';
 import RecipePage from './components/RecipePage/RecipePage';
 import UserPage from './components/UserPage/UserPage';
 import AddRecipe from './components/AddRecipe/AddRecipe';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const initialState = {
   route: 'home', 
@@ -71,9 +72,39 @@ class App extends Component {
   // keep session
   componentDidMount() {
     this.loadUser();
-  }    
+  }  
+
+  onSignOut = () => {
+    fetch('https://whispering-shelf-53733.herokuapp.com/auth/logout', {
+        method: 'get',
+        credentials: "include",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+    }).then(res => res.json).then(console.log);
+    this.setState(initialState);    
+  } 
 
   render() {
+      const { route, isSignedIn, recipeId, error, user, recipesFrom } = this.state;
+      return (
+       <Router>
+        <main> 
+          <NavBar isSignedIn={isSignedIn} signout={this.onSignOut}/>
+          <Route path="/" exact component={Welcome} />
+          <Route path="/signout" exact component={SignOut} />
+          <Route path="/signin"  render={(props) => <SignIn isSignedIn={isSignedIn} loadUser={this.loadUser}/>} />
+          <Route path="/register" component={Register}/>
+          <Route path="/search"  render={(props) => <SearchRecipe user={user} loadUser={this.loadUser} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/>} />
+          <Route path="/recipePage"  render={(props) => <RecipePage recipeId={recipeId} recipesFrom={recipesFrom}/>} />
+          <Route path="/userPage"  render={(props) => <UserPage user={user} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/>} />
+          <Route path="/addRecipe"  render={(props) => <AddRecipe user={user}/>} />
+        </main>
+      </Router>
+    );
+  } 
+
+  render2() {
     const { route, isSignedIn, recipeId, error, user, recipesFrom } = this.state;
     return (
       <div className="App">
