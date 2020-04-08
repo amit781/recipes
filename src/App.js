@@ -95,7 +95,7 @@ class App extends Component {
       const { route, isSignedIn, recipeId, error, user, recipesFrom } = this.state;
       return (
        <Router>
-        <main> 
+        <main className="App"> 
           <NavBar isSignedIn={isSignedIn} signout={this.onSignOut}/>
           <Route path="/" exact component={Welcome} />
           <Route path="/signin"  render={(props) => <SignIn isSignedIn={isSignedIn} updateUser={this.updateUser}/>} />
