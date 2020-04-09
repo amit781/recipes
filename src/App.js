@@ -100,10 +100,10 @@ class App extends Component {
           <Route path="/" exact component={Welcome} />
           <Route path="/signin"  render={(props) => <SignIn isSignedIn={isSignedIn} updateUser={this.updateUser}/>} />
           <Route path="/register" component={Register}/>
-          <Route path="/search"  render={(props) => (user === true ? <SearchRecipe user={user} loadUser={this.loadUser} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/> : <Redirect to="/signin"/>)} />
-          <Route path="/recipePage"  render={(props) => (user === true ? <RecipePage recipeId={recipeId} recipesFrom={recipesFrom}/> : <Redirect to="/signin"/>)} />
-          <Route path="/userPage"  render={(props) => (user === true ? <UserPage user={user} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/> : <Redirect to="/signin"/>)} />
-          <Route path="/addRecipe"  render={(props) => (user === true ? <AddRecipe user={user}/> : <Redirect to="/signin"/>)} />
+          <Route path="/search"  render={(props) => (isSignedIn ? <SearchRecipe user={user} loadUser={this.loadUser} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/> : <Redirect to="/signin"/>)} />
+          <Route path="/recipePage"  render={(props) => (isSignedIn ? <RecipePage recipeId={recipeId} recipesFrom={recipesFrom}/> : <Redirect to="/signin"/>)} />
+          <Route path="/userPage"  render={(props) => (isSignedIn ? <UserPage user={user} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/> : <Redirect to="/signin"/>)} />
+          <Route path="/addRecipe"  render={(props) => (isSignedIn ? <AddRecipe user={user}/> : <Redirect to="/signin"/>)} />
         </main>
       </Router>
     );
