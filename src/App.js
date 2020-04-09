@@ -9,7 +9,7 @@ import RecipePage from './components/RecipePage/RecipePage';
 import UserPage from './components/UserPage/UserPage';
 import AddRecipe from './components/AddRecipe/AddRecipe';
 import NavBar from './components/NavBar/NavBar';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 const initialState = {
   route: 'home', 
@@ -100,10 +100,10 @@ class App extends Component {
           <Route path="/" exact component={Welcome} />
           <Route path="/signin"  render={(props) => <SignIn isSignedIn={isSignedIn} updateUser={this.updateUser}/>} />
           <Route path="/register" component={Register}/>
-          <Route path="/search"  render={(props) => <SearchRecipe user={user} loadUser={this.loadUser} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/>} />
-          <Route path="/recipePage"  render={(props) => <RecipePage recipeId={recipeId} recipesFrom={recipesFrom}/>} />
-          <Route path="/userPage"  render={(props) => <UserPage user={user} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/>} />
-          <Route path="/addRecipe"  render={(props) => <AddRecipe user={user}/>} />
+          <Route path="/search"  render={(props) => (user === true ? <SearchRecipe user={user} loadUser={this.loadUser} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/> : <Redirect to="/signin"/>)} />
+          <Route path="/recipePage"  render={(props) => (user === true ? <RecipePage recipeId={recipeId} recipesFrom={recipesFrom}/> : <Redirect to="/signin"/>)} />
+          <Route path="/userPage"  render={(props) => (user === true ? <UserPage user={user} setRecipeId={this.setRecipeId} setRecipesFrom={this.setRecipesFrom}/> : <Redirect to="/signin"/>)} />
+          <Route path="/addRecipe"  render={(props) => (user === true ? <AddRecipe user={user}/> : <Redirect to="/signin"/>)} />
         </main>
       </Router>
     );
