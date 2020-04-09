@@ -5,7 +5,7 @@ import './NavBar.css';
 const NavBar = ({ isSignedIn, signout }) => {
 	if (isSignedIn) {
 		return (
-			<nav clasName="navbar" style={{display: 'flex', justifyContent: 'flex-end', margin: '10px'}}>
+			<nav style={{display: 'flex', justifyContent: 'flex-end', margin: '10px'}}>
 				<ul className="pointer">
 					<li className="Menu">Menu
 						<ul>
@@ -19,7 +19,7 @@ const NavBar = ({ isSignedIn, signout }) => {
 		)
 	} else {
 		return (
-			<nav clasName="navbar" style={{display: 'flex', justifyContent: 'flex-end', margin: '10px'}}>
+			<nav style={{display: 'flex', justifyContent: 'flex-end', margin: '10px'}}>
 				<ul className="pointer">
 					<li className="Menu">Menu
 						<ul>
