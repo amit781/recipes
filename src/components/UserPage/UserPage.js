@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import RecipesList from '../RecipesList/RecipesList';
-import { Redirect } from "react-router-dom";
 import './UserPage.css';
 
 const myRecipes = [{title: "cookie", image: "", recipeId: "7"},
@@ -11,8 +10,7 @@ class UserPage extends Component {
 	constructor(props) {
     	super();
     	this.state = {
-      		recipesList: [],
-          toAddRcipe: false
+      		recipesList: []
     	}
     }
 
@@ -32,14 +30,11 @@ class UserPage extends Component {
 
     render() {
     	const { user, onRouteChange, setRecipeId } = this.props;
-      if (this.state.toAddRcipe) {
-        return <Redirect to='/addRecipe'/>
-      } 
     	return (
 			<div>
           <div className="wrap-user-page">
             <h3 className="f2 lh-copy">{user.name}'s Recipes</h3>
-            <p className='f3 link dim black pa3 pointer shadow-5' onClick={() => this.setState({toAddRcipe: true})}> Add Recipe </p>
+            <p className='f3 link dim black pa3 pointer shadow-5' onClick={() =>onRouteChange('add-recipe')}> Add Recipe </p>
           </div> 
 				  <div><RecipesList 
             className="mb3" 

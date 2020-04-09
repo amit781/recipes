@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Redirect } from "react-router-dom";
 
 class AddRecipe extends Component {
     constructor(props) {
@@ -9,8 +8,7 @@ class AddRecipe extends Component {
           instructions: '',
           ingredients: '',
           recipeImage: null,
-          errorMessage: '',
-          toUserPage: false
+          errorMessage: ''
         }
     }
 
@@ -64,8 +62,7 @@ class AddRecipe extends Component {
               if (recipe === 'incorrect form submission') {
                 this.setState({errorMessage: 'Title, Instructions and ingredients must be filled in'})
               } else {
-                this.setState({toUserPage: true});
-                // this.props.onRouteChange('user-page');
+                this.props.onRouteChange('user-page');
               }
             })
       .catch(err => console.log(err));
@@ -85,9 +82,6 @@ class AddRecipe extends Component {
     }
 
     render() {
-        if (this.state.toUserPage) {
-          return <Redirect to='/userPage' />
-        } 
         return (
             <article className="br3 ba dark-gray b--black-10 mv4 w-100 mw6 shadow-5 center">
                 <main className="pa4 black-80">

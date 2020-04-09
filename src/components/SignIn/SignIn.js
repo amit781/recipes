@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Redirect } from "react-router-dom";
 
 class SignIn extends Component{
 
@@ -8,9 +7,7 @@ class SignIn extends Component{
     this.state = {
       signInEmail: '',
       signInPassword: '',
-      errorMessage: '',
-      toSearchPage: false, 
-      toRegister: false
+      errorMessage: ''
     }
   }
 
@@ -35,10 +32,8 @@ class SignIn extends Component{
     .then(response => response.json())
     .then(user => {
       if (user.id) {
-        this.props.updateUser(user)
-        this.setState({toSearchPage: true});
-        // this.props.onRouteChange('search');
-        // this.props.loadUser();
+        this.props.onRouteChange('search');
+        this.props.loadUser();
       } else {
         this.setState({errorMessage: user})
       }
@@ -46,13 +41,7 @@ class SignIn extends Component{
   }  
 
   render() {
-    // const { onRouteChange } = this.props;
-    if (this.state.toSearchPage) {
-      return <Redirect to='/search' />
-    } 
-    if (this.state.toRegister) {
-      return <Redirect to='/register' />
-    }
+    const { onRouteChange } = this.props;
 	  return (
       <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
         <main className="pa4 black-80">
@@ -91,8 +80,8 @@ class SignIn extends Component{
               />
             </div>
             <div className="lh-copy mt3">
-              <p className="f6 link dim black db pointer" onClick={() => this.setState({toRegister: true})}>Register</p>
-              </div>
+              <p onClick={() => onRouteChange('register')} className="f6 link dim black db pointer">Register</p>
+            </div>
           </div>
         </main>
       </article>

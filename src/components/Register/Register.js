@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import GoogleButton from 'react-google-button';
-import { Redirect } from "react-router-dom";
 
 class Register extends Component {
 	constructor(props) {
@@ -44,12 +43,12 @@ class Register extends Component {
 	    .then(user => {
 	    	if (user.id) {
 	    		alert('Succesfully added');
-	    		this.setState({toSignIn: true})
+	    		this.props.onRouteChange('signin');
 	    	} else {
 	    		this.setState({errorMessage: user})
 	    	}
 	    })
-	    .catch(err => console.log(err));
+	    .catch(err => console.log(err, "*******"));
   	}
 
   	onSubmitRegisterGoogle = () => {
@@ -57,9 +56,6 @@ class Register extends Component {
   	}
 
 	render() {
-		if (this.state.toSignIn) {
-      		return <Redirect to='/signin' />
-    	}
 		return (
 			<article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
 		        <main className="pa4 black-80">
