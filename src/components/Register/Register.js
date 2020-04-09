@@ -49,7 +49,7 @@ class Register extends Component {
 	    		this.setState({errorMessage: user})
 	    	}
 	    })
-	    .catch(err => console.log(err, "*******"));
+	    .catch(err => console.log(err));
   	}
 
   	onSubmitRegisterGoogle = () => {
