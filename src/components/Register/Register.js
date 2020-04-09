@@ -43,7 +43,7 @@ class Register extends Component {
 	    .then(user => {
 	    	if (user.id) {
 	    		alert('Succesfully added');
-	    		this.props.onRouteChange('signin');
+	    		this.setState({toSignIn: true})
 	    	} else {
 	    		this.setState({errorMessage: user})
 	    	}
@@ -56,6 +56,9 @@ class Register extends Component {
   	}
 
 	render() {
+		if (this.state.toSignIn) {
+      		return <Redirect to='/signin' />
+    	}
 		return (
 			<article className="br3 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center">
 		        <main className="pa4 black-80">
