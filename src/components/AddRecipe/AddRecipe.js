@@ -103,7 +103,7 @@ class AddRecipe extends Component {
                         <div className="mt3">
                         <label className="db fw6 lh-copy f6" htmlFor="image">Upload Image</label>
                         <input
-                         className="textbox pa2 ba bg-transparent hover-bg-black hover-white w-95"
+                         className="pa2 ba bg-transparent hover-bg-black hover-white w-90"
                          type="file" 
                          name="image"  
                          id="image"
@@ -116,7 +116,6 @@ class AddRecipe extends Component {
                         <label className="db fw6 lh-copy f6" htmlFor="password">Instructions</label>
                         <textarea 
                         id="instructions" 
-                        rows="10" 
                         style={{resize: "none"}} 
                         className="textbox b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 b--black"
                         onChange={this.onInstructionsChange}
@@ -127,7 +126,6 @@ class AddRecipe extends Component {
                         <label className="db fw6 lh-copy f6" htmlFor="password">Ingredients</label>
                         <textarea 
                         id="ingredients" 
-                        rows="10" 
                         style={{resize: "none"}} 
                         className="textbox b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 b--black"
                         onChange={this.onIngredientsChange}>
@@ -138,7 +136,7 @@ class AddRecipe extends Component {
                     { this.state.errorMessage &&
                           <p className="dark-red">{this.state.errorMessage}</p> }
                     <input
-                         className="submit-btn b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+                         className="submit-btn ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib w-20" 
                          type="submit" 
                          value="Add" 
                          onClick={this.onSubmit}

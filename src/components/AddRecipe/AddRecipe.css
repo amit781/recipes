@@ -1,5 +1,9 @@
 input {
-	box-sizing : border-box;
+	width: 100%;
+}
+
+textarea {
+	height: 100px;
 }
 
 @media only screen 
@@ -8,5 +12,11 @@ input {
   and (-webkit-min-device-pixel-ratio: 2) {
 	.textbox, .submit-btn {
 	font-size: 25pt;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  article {
+	width: 100%;
   }
 }
