@@ -1,0 +1,10 @@
+.navbar {
+	display: flex;
+	justify-content: flex-end;
+}
+
+@media screen and (max-width: 460px) {
+	.navbar {
+		justify-content: center;
+	}
+}

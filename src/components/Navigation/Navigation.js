@@ -14,14 +14,14 @@ const Navigation = ({ onRouteChange, isSignedIn, setIsSignedIn }) => {
 
 	if (isSignedIn) {
 		return (
-			<nav style={{display: 'flex', justifyContent: 'flex-end'}}>				
+			<nav className="navbar">				
 					<p onClick={() => onRouteChange('user-page')} className='f3 link dim black pa3 pointer shadow-5'> My recipes </p>
 					<p onClick={() => onRouteChange('search')} className='f3 link dim black pa3 pointer shadow-5'> Search </p>
 					<p onClick={onSignOut} className='f3 link dim black pa3 pointer shadow-5'> Sign Out </p>
 			</nav> );
 	} else {
 		return (
-			<nav style={{display: 'flex', justifyContent: 'flex-end'}}>				
+			<nav className="navbar">				
 				<p onClick={() => onRouteChange('signin')} className='f3 link dim black pa3 pointer shadow-5'> Sign In </p>
 				<p onClick={() => onRouteChange('register')} className='f3 link dim black pa3 pointer shadow-5'> Register </p>
 			</nav> ); 
