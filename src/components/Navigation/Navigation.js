@@ -1,4 +1,5 @@
 import React from 'react';
+import './Navigation.css';
 
 const Navigation = ({ onRouteChange, isSignedIn, setIsSignedIn }) => {
 	const onSignOut = () => {
