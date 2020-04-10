@@ -31,7 +31,7 @@ class UserPage extends Component {
     render() {
     	const { user, onRouteChange, setRecipeId } = this.props;
     	return (
-			<div>
+			<div className="ma0">
           <div className="wrap-user-page">
             <h3 className="recipes-title f2 lh-copy">{user.name}'s Recipes</h3>
             <p className='f3 link dim black pa3 pointer shadow-5' onClick={() =>onRouteChange('add-recipe')}> Add Recipe </p>

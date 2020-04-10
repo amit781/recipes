@@ -36,9 +36,6 @@
 
 .wrap {
   width: 30%;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 @media only screen 
@@ -52,22 +49,12 @@
     font-size: 20pt;
   }
   .wrap {
-    width: 80%;
+    width: 100%;
   }
 }
 
 @media screen and (max-width: 1000px) {
-  .search-title {
-    position: relative;
-    top: 40px;
-  }
-  .search {
-    top: 40px;
-  }
   .wrap {
     width: 65%;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 }

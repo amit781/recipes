@@ -62,7 +62,7 @@ class SearchRecipe extends Component{
         const { baseUrl, recipesList } = this.state;
         return (
             <div>
-                <div className="wrap">
+                <div className="wrap center">
                     <h3 className="search-title">Serarch for a recipe</h3>
                     { this.state.errorMessage &&
                         <div>
@@ -77,7 +77,7 @@ class SearchRecipe extends Component{
                     </div>
                 </div> 
 
-                <RecipesList 
+                <RecipesList
                  baseUrl={baseUrl} 
                  recipesList={recipesList} 
                  onRouteChange={this.props.onRouteChange}
