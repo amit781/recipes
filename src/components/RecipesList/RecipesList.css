@@ -7,15 +7,6 @@
 	margin: 20px; 
 }
 
-@media only screen 
-  and (min-device-width: 320px) 
-  and (max-device-width: 480px)
-  and (-webkit-min-device-pixel-ratio: 2) {
-  .container {
-  	top: -50px;
-  }
-}
-
 @media screen and (max-width: 480px) {
   .container {
   	grid-gap: 10px;
