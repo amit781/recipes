@@ -59,10 +59,10 @@
 @media screen and (max-width: 1000px) {
   .search-title {
     position: relative;
-    top: 30px;
+    top: 40px;
   }
   .search {
-    top: 30px;
+    top: 40px;
   }
   .wrap {
     width: 65%;
