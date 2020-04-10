@@ -84,7 +84,7 @@ class AddRecipe extends Component {
 
     render() {
         return (
-            <article className="br3 ba dark-gray b--black-10 mv4 w-100 mw6 shadow-5 center">
+            <article className="br3 ba dark-gray b--black-10 mv4 w-100 mw6 shadow-5 center ma2">
                 <main className="pa4 black-80">
                     <div className="measure">
                     <fieldset id="sign_up" className="ba b--transparent ph0 mh0">

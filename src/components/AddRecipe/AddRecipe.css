@@ -13,6 +13,9 @@ textarea {
 	.textbox, .submit-btn {
 	font-size: 25pt;
   }
+  .submit-btn {
+  	width: 40%;
+  }
 }
 
 @media screen and (max-width: 1000px) {
