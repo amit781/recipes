@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './AddRecipe.css';
 
 class AddRecipe extends Component {
     constructor(props) {
@@ -91,7 +92,7 @@ class AddRecipe extends Component {
                         <div className="mt3">
                         <label className="db fw6 lh-copy f6" htmlFor="email-address">Title</label>
                         <input
-                         className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
+                         className="textbox pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100" 
                          type="text" 
                          name="title"  
                          id="title"
@@ -102,7 +103,7 @@ class AddRecipe extends Component {
                         <div className="mt3">
                         <label className="db fw6 lh-copy f6" htmlFor="image">Upload Image</label>
                         <input
-                         className="pa2 ba bg-transparent hover-bg-black hover-white w-95"
+                         className="textbox pa2 ba bg-transparent hover-bg-black hover-white w-95"
                          type="file" 
                          name="image"  
                          id="image"
@@ -117,7 +118,7 @@ class AddRecipe extends Component {
                         id="instructions" 
                         rows="10" 
                         style={{resize: "none"}} 
-                        className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 b--black"
+                        className="textbox b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 b--black"
                         onChange={this.onInstructionsChange}
                         >
                         </textarea>
@@ -128,7 +129,7 @@ class AddRecipe extends Component {
                         id="ingredients" 
                         rows="10" 
                         style={{resize: "none"}} 
-                        className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 b--black"
+                        className="textbox b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100 b--black"
                         onChange={this.onIngredientsChange}>
                         </textarea>
                         </div>
@@ -137,7 +138,7 @@ class AddRecipe extends Component {
                     { this.state.errorMessage &&
                           <p className="dark-red">{this.state.errorMessage}</p> }
                     <input
-                         className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
+                         className="submit-btn b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                          type="submit" 
                          value="Add" 
                          onClick={this.onSubmit}
