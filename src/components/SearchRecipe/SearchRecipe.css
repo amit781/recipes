@@ -40,3 +40,28 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .search-title {
+  font-size: 25pt;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .search-title {
+    position: relative;
+    top: 30px;
+  }
+  .search {
+    top: 30px;
+  }
+  .wrap {
+    width: 65%;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
