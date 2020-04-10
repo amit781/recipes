@@ -1,0 +1,29 @@
+.recipe-image{
+  float: left; 
+  border-radius: 20px
+}
+
+.ingredients {
+  float: left;
+} 
+
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  .headline {
+  font-size: 25pt;
+  }
+    .text {
+  font-size: 20pt;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .recipe-image {
+  float: none  
+   }
+  .ingredients {
+    float: none;
+  }
+}
