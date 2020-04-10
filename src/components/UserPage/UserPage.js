@@ -31,19 +31,16 @@ class UserPage extends Component {
     render() {
     	const { user, onRouteChange, setRecipeId } = this.props;
     	return (
-			<div className="ma0">
-          <div className="wrap-user-page">
-            <h3 className="recipes-title f2 lh-copy">{user.name}'s Recipes</h3>
-            <p className='f3 link dim black pa3 pointer shadow-5' onClick={() =>onRouteChange('add-recipe')}> Add Recipe </p>
-          </div> 
-				  <div><RecipesList 
+      <div className="ma0 pa0">
+          <h3 className="recipes-title f2 lh-copy">{user.name}'s Recipes</h3>
+          <p className='add-recipe-btn f3 link dim black pa3 pointer shadow-5 w-50 w-30-m w-20-l center' onClick={() =>onRouteChange('add-recipe')}> Add Recipe </p>
+          <RecipesList 
             className="mb3" 
             recipesList={this.state.recipesList} 
-            baseUrl={process.env.REACT_APP_AWS_BUCKET_URL} 
+            baseUrl='https://perfectrecipesbucket.s3-us-west-1.amazonaws.com/' 
             onRouteChange={onRouteChange} 
             setRecipeId={setRecipeId}
-            style={{position: "relative", top: "-100px"}}/>
-    			</div>
+            />
       </div>
 		  )
     }
