@@ -1,5 +1,6 @@
 import React from 'react';
 import defaultImage from "./default.jpg";
+import './RecipeCard.css';
 
 const RecipeCard = ({ title, imageUrl, onRouteChange, setRecipeId, recipeId }) => {
 	const onClick = () => {
@@ -7,8 +8,10 @@ const RecipeCard = ({ title, imageUrl, onRouteChange, setRecipeId, recipeId }) =
 		setRecipeId(recipeId);
 	}
 	return (
-		<article className="pa2" width='200px'>
-			<img src={imageUrl} alt='recipe' width='200px' height='200px' style={{objectFit: 'cover'}} className="pointer" onClick={onClick} />
+		<article className="pa2" style={{display: 'flex', flexDirection: 'column'}}>
+			<div className="card-container">
+				<img src={imageUrl} alt='recipe' className="pointer card-image" onClick={onClick} />
+			</div>
             <div>
                 <h3 className="pointer" onClick={onClick}>{title}</h3>
             </div>
