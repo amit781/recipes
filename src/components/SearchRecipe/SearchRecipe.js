@@ -63,7 +63,7 @@ class SearchRecipe extends Component{
         return (
             <div>
                 <div className="wrap">
-                    <h3>Serarch for a recipe</h3>
+                    <h3 className="search-title">Serarch for a recipe</h3>
                     { this.state.errorMessage &&
                         <div>
                       <p>{this.state.errorMessage}<i style={{position: 'absolute', width: 0, height: 0}} className="material-icons">sentiment_dissatisfied</i></p> 

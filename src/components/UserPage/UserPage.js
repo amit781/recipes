@@ -33,7 +33,7 @@ class UserPage extends Component {
     	return (
 			<div>
           <div className="wrap-user-page">
-            <h3 className="f2 lh-copy">{user.name}'s Recipes</h3>
+            <h3 className="recipes-title f2 lh-copy">{user.name}'s Recipes</h3>
             <p className='f3 link dim black pa3 pointer shadow-5' onClick={() =>onRouteChange('add-recipe')}> Add Recipe </p>
           </div> 
 				  <div><RecipesList 
