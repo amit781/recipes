@@ -11,3 +11,10 @@
   	top: 150px;
   }
 }
+
+@media screen and (max-width: 480px) {
+  .container {
+  	grid-gap: 10px;
+	margin: 10px; 
+  }
+}
