@@ -46,11 +46,14 @@
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
   .search-title {
-  font-size: 25pt;
+    font-size: 25pt;
+  }
+  .searchTerm {
+    font-size: 25pt;
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1000px) {
   .search-title {
     position: relative;
     top: 30px;
