@@ -49,7 +49,10 @@
     font-size: 25pt;
   }
   .searchTerm {
-    font-size: 25pt;
+    font-size: 20pt;
+  }
+  .wrap {
+    width: 65%;
   }
 }
 
